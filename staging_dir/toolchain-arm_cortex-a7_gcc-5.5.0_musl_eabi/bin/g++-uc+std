@@ -1,0 +1,24 @@
+#!/bin/sh
+
+
+WRAPPER_LIBDIR="${WRAPPER_LIBDIR:=-L${STAGING_DIR:-/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/target-arm_cortex-a7_musl_eabi}/lib/}"
+
+WRAPPER_OPTIONS=""
+WRAPPER_LIBS="-lc -lgcc_s -lssp_nonshared"
+
+WRAPPER_INCLIB="Y"
+for arg
+do
+	case "$arg" in
+	-c|-E|-S) WRAPPER_INCLIB="N" ;;
+	-static) [ "$WRAPPER_LIBS" != "-lc -lgcc_s -lssp_nonshared -lgcc_eh" ] && WRAPPER_LIBS="-lc -lgcc_s -lssp_nonshared -lgcc_eh" ;;
+	esac
+done
+if [ "$WRAPPER_INCLIB" = "Y" ]
+then
+	WRAPPER_OPTIONS="$WRAPPER_OPTIONS -nodefaultlibs $WRAPPER_LIBDIR -Wl,-Bdynamic,-luClibc++,-Bstatic,-lstdc++,-Bdynamic $WRAPPER_LIBS"
+fi
+
+[ -n "$V" ] && [ $V -gt 1 ] && echo arm-openwrt-linux-muslgnueabi-g++ -fno-builtin  -DGCC_HASCLASSVISIBILITY  $WRAPPER_INCLUDEDIR "$@" $WRAPPER_OPTIONS
+exec arm-openwrt-linux-muslgnueabi-g++ -fno-builtin  -DGCC_HASCLASSVISIBILITY  $WRAPPER_INCLUDEDIR "$@" $WRAPPER_OPTIONS
+

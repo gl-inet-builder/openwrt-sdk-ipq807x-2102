@@ -1,0 +1,11 @@
+prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+exec_prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: GNU MP
+Description: GNU Multiple Precision Arithmetic Library
+URL: https://gmplib.org
+Version: 6.2.1
+Cflags: -I${includedir}
+Libs: -L${libdir} -lgmp

@@ -1,0 +1,9 @@
+echo '######################################## Flashing ubi: Started'
+setenv stdout nulldev
+smem
+imxtract $imgaddr ubi || setenv stdout serial && echo "invalid image" && exit 1
+setenv stdout serial
+nand erase.part fs
+nand write $fileaddr fs $filesize
+echo '######################################## Flashing ubi: Done'
+exit 0

@@ -1,0 +1,12 @@
+prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+exec_prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+libdir=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host/lib
+includedir=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host/include
+
+Name: json-c
+Description: A JSON implementation in C
+Version: 0.15
+Requires:
+Libs.private: 
+Libs: -L${libdir} -ljson-c
+Cflags: -I${includedir} -I${includedir}/json-c

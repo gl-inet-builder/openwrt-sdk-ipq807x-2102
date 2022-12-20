@@ -1,0 +1,16 @@
+#libssl pkg-config source file
+
+prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+exec_prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: LibreSSL-libssl
+Description: Secure Sockets Layer and cryptography libraries
+Version: 3.3.3
+Requires:
+Requires.private: libcrypto
+Conflicts:
+Libs: -L${libdir} -lssl
+Libs.private: -lresolv -lpthread  -lcrypto 
+Cflags: -I${includedir}

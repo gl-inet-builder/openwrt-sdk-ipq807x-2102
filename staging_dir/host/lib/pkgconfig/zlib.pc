@@ -1,0 +1,13 @@
+prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+exec_prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+libdir=${prefix}/lib
+sharedlibdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.11
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

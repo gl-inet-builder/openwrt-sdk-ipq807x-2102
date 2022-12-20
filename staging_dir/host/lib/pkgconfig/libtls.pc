@@ -1,0 +1,15 @@
+#libtls pkg-config source file
+
+prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+exec_prefix=/home/glinet/work/actions-runner/_work/gl-infra-builder/gl-infra-builder/wlan-ap/openwrt/staging_dir/host
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: LibreSSL-libtls
+Description: Secure communications using the TLS socket protocol.
+Version: 3.3.3
+Requires:
+Conflicts:
+Libs: -L${libdir} -ltls
+Libs.private: -lresolv -lpthread  
+Cflags: -I${includedir}
