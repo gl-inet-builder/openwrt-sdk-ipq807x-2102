@@ -243,19 +243,6 @@ $(_endef)
 
 	$(INSTALL_DIR) $$(PDIR_$(1))
 
-	$(FAKEROOT) apk mkpkg \
-	  --info "name:$(1)" \
-	  --info "version:$(VERSION)" \
-	  --info "description:$()" \
-	  --info "arch:$(PKGARCH)" \
-	  --info "license:$(LICENSE)" \
-	  --info "origin:$(SOURCE)" \
-	  --info "maintainer:$(MAINTAINER)" \
-	  $$(foreach dep,$$(Package/$(1)/DEPENDS),--info "depends:$$(subst $$(comma),,$$(dep))") \
-	  --files "$$(IDIR_$(1))" \
-	  --output "$$(APK_$(1))" \
-	  --sign "$(BUILD_KEY_APK_SEC)"
-
 	mkdir -p $$(IDIR_$(1))/CONTROL
 
 	(cd $$(IDIR_$(1))/CONTROL; \
