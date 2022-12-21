@@ -56,9 +56,9 @@ VERSION_PRODUCT:=$(if $(VERSION_PRODUCT),$(VERSION_PRODUCT),Generic)
 VERSION_HWREV:=$(call qstrip,$(CONFIG_VERSION_HWREV))
 VERSION_HWREV:=$(if $(VERSION_HWREV),$(VERSION_HWREV),v0)
 
-VERSION_TIP:=$(shell $(TOPDIR)/scripts/getver.sh wlan-ap)
+VERSION_TIP:=$(shell $(TOPDIR)/scripts/getver.sh)
 
-VERSION_TIP_VERSION:=$(shell $(TOPDIR)/scripts/getver.sh wlan-ap-version)
+VERSION_TIP_VERSION:=$(shell $(TOPDIR)/scripts/getver.sh)
 VERSION_TIP_VERSION:=$(if $(VERSION_TIP_VERSION),$(VERSION_TIP_VERSION),devel)
 
 define taint2sym
